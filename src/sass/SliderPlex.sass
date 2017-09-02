@@ -1,0 +1,43 @@
+// compileExpanded: ../css/SliderPlex.css, compileCompressed: ../css/SliderPlex.min.css
+
+@import 'vars'
+@import 'mixins/propertyPrefix'
+@import 'mixins/commons'
+@import 'arrow'
+
+.slider-plex
+    position: relative
+    width: 100%
+    height: 100%
+    overflow: hidden
+    background-color: transparent
+
+    .plex-slides
+        position: absolute
+        top: 0
+        bottom: 0
+        margin: 0
+        padding: 0
+        width: 100%
+
+    .active
+        z-index: 2
+
+    .next, .previous
+        z-index: 1
+
+.plex-slides > li
+        position: absolute
+        top: 0
+        bottom: 0
+        width: 100%
+        list-style: none
+
+.transite
+    @include animation(transite .5s ease-out)
+
+@keyframes transite
+    from
+        opacity: 1
+    to
+        opacity: 0
