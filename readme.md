@@ -1,35 +1,35 @@
 # SliderPlex
 
-A simple and responsive jQuery content slider plugin
+A simple and responsive jQuery content slider plugin.
 
 ## Table of contents
 
  - [Installation](#installation)
  - [Usage](#usage)
+ - [Options](#options)
  - [Contribute](#contribute)
  - [Credits](#credits)
  - [License](#license)
 
 ## Installation
 
-Install it using one of the follows options:
+Install it using one of the follow options:
 
 1. Using [Git](https://pt.wikipedia.org/wiki/Git):
 
     git clone git://github.com/e200/SliderPlex.git
 
-2. Using [Bower](https://bower.io/):
+2. Using [Bower](https://bower.io/docs):
     
-    bower install unity/config
+    bower install sliderplex
 
-using a **terminal/prompt** in your project folder.
-
-Add jQuery and SliderPlex CSS and JavaScript files to your page <head>:
+in a **terminal/prompt** in your project folder, then add *jQuery* and **SliderPlex** files (CSS & JavaScript) to your page:
 
 ```html
 <head>
     <link rel="stylesheet" href="src/css/SliderPlex.min.css">
     
+    <!-- jQuery must be before SliderPlex -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="src/SliderPlex.min.js"></script>
 </head>
@@ -37,10 +37,10 @@ Add jQuery and SliderPlex CSS and JavaScript files to your page <head>:
 
 ## Usage
 
-First, setup the slider structure:
+First, setup your slider structure:
 
 ```html
-<div class="slider">
+<div id="slider">
     <ul>
         <li><img src="images/slides1.jpg"></li>
         <li><img src="images/slides2.jpg"></li>
@@ -50,13 +50,12 @@ First, setup the slider structure:
     </ul>
 </div>
 ```
-Sets how many slides you want. Then, initialize the SliderPlex with the slide element above the body close tag:
+Sets how many slides you want. Then, initialize the SliderPlex before the body close tag:
 
 ```html
-    <script>
-        $('.slider').SliderPlex();
-    </script>
-</body>
+<script>
+    $('#slider').SliderPlex();
+</script>
 ```
 
 Full usage code:
@@ -73,12 +72,13 @@ Full usage code:
         
         <link rel="stylesheet" href="src/css/SliderPlex.min.css">
             
+        !-- jQuery must be before SliderPlex -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="src/SliderPlex.min.js"></script>
     </head>
     
     <body>
-        <div class="slider">
+        <div id="slider">
             <ul>
                 <li><img src="images/slides1.jpg"></li>
                 <li><img src="images/slides2.jpg"></li>
@@ -89,21 +89,43 @@ Full usage code:
         </div>
         
         <script>
-            $('.slider').SliderPlex();
+            $('#slider').SliderPlex();
         </script>
     </body>
 </html>
 ```
 
-And, voila... It's working!!!
+And... That's it!!! :)
 
 ## Options
 
-:/
+You can pass an object containing options to the SliderPlex initialization method:
+
+```js
+$('.slider').SliderPlex({
+    autoPlay: false,
+    transition: 'fade'
+});
+```
+
+##### Available options:
+
+```
+autoPlay         | default: true
+interval         | default: 8 (sec)                       
+transition       | default: 'fade'
+transitionTime   | default: .5 (sec)
+direction        | default: 'right'
+arrows           | default: true
+nonFocusArrows   | default: false
+pauseOnMouseOver | default: false
+pauseOnMouseDown | default: true
+fillHeight       | default: true
+ ```
 
 ## Contributing
 
-To contribute, please, read the [contributing](https://github.com/e200/SliderPlex)
+To contribute, please, read [contributing](https://github.com/e200/SliderPlex).
 ## Credits
 
  - [Eleandro Duzentos](https://e200.github.com/) and contributors.
