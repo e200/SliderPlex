@@ -61,13 +61,20 @@
         opacity: 0
         @include transform(scale(1.02))
 
+.slideIn
+    @include animation(slideIn .5s ease-out)
+
 .slideOut
     @include animation(slideOut .5s ease-out)
 
+@keyframes slideIn
+    from
+        @include transform(translateX(-100%))
+    to
+        @include transform(translateX(0))
+
 @keyframes slideOut
     from
-        opacity: 1
         @include transform(translateX(0))
     to
-        opacity: 0
         @include transform(translateX(-100%))
