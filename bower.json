@@ -1,0 +1,27 @@
+{
+  "name": "SliderPlex",
+  "homepage": "https://github.com/e200/SliderPlex",
+  "authors": [
+    "e200 <eleandro@inbox.ru>"
+  ],
+  "description": "A simple and responsive jQuery content slider plugin",
+  "main": "src/SliderPlex.min.js src/css/SliderPlex.min.css",
+  "keywords": [
+    "jQuery",
+    "Responsive",
+    "Simple",
+    "Content",
+    "Slider",
+    "Plugin",
+    "Fade",
+    "Slide"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
