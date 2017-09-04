@@ -14,11 +14,11 @@ A simple and responsive jQuery content slider plugin
 
 Install it using one of the follows options:
 
-1. Using [Git][https://pt.wikipedia.org/wiki/Git]:
+1. Using [Git](https://pt.wikipedia.org/wiki/Git):
 
     git clone git://github.com/e200/SliderPlex.git
 
-2. Using [Bower](https://bower.io/) (recommend):
+2. Using [Bower](https://bower.io/):
     
     bower install unity/config
 
@@ -110,4 +110,4 @@ To contribute, please, read the [contributing](https://github.com/e200/SliderPle
  
 ## License
  
-The SLiderPlex is licensed under the MIT license. See [License](https://github.com/) file for more information.
+The SliderPlex is licensed under the MIT license. See [License](https://github.com/) file for more information.
