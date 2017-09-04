@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../src/css/SliderPlex.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../src/SliderPlex.js"></script>
+    <title>Test</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+    html, body {
+        height: 100%;
+    }
+</style>
+<body>
+    <div class="slider slider-plex">
+        <ul>
+            <li>
+                <img src="0.jpg">
+            </li>
+            <li>
+                <img src="1.jpg">
+            </li>
+            <li>
+                <img src="2.jpg">
+            </li>
+            <li>
+                <img src="3.jpg">
+            </li>
+        </ul>
+    </div>
+    <script>
+        $('.slider').SliderPlex();
+    </script>
+</body>
+</html>
