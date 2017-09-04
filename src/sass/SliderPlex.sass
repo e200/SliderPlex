@@ -21,22 +21,29 @@
         width: 100%
 
     .active
-        z-index: 2
+        z-index: 4
 
-    .next, .previous
-        z-index: 1
+    .next, .prev
+        z-index: 3
 
-.plex-slides > li
+    .full-height > li > *
+        height: 100%
+
+.plex-slides
+    > li
         position: absolute
         top: 0
         bottom: 0
         width: 100%
         list-style: none
 
-.transite
-    @include animation(transite .5s ease-out)
+        > img
+            width: 100%
 
-@keyframes transite
+.fadeOut
+    @include animation(fadeOut .5s ease-out)
+
+@keyframes fadeOut
     from
         opacity: 1
     to
