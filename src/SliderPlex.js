@@ -69,6 +69,10 @@
             if($options.nonFocusArrows)
                 setArrowsAsNonFocus();
 
+            /*
+             * If autoPlay is enabled, when the user clicks
+             * in an arrow the play slide cycle is restarted
+             */
             if($options.autoPlay)
                 $('.arrow').on('click', function (e) {
                     e.preventDefault();
@@ -113,10 +117,15 @@
             if($cycle)
                 clearInterval($cycle);
 
+            // Just for code reuse
+            var setInt = function (callback) {
+                $cycle = setInterval(callback, getInterval());
+            };
+
             if(directionToRight())
-                $cycle = setInterval(slideRight, getInterval());
+                setInt(slideRight);
             else
-                $cycle = setInterval(slideLeft, getInterval());
+                setInt(slideLeft);
         }
 
         /** Gets the slides transition interval */
