@@ -120,7 +120,7 @@ arrows           | default: true
 nonFocusArrows   | default: false
 pauseOnMouseOver | default: false
 pauseOnMouseDown | default: true
-fillHeight       | default: true
+fillSpace        | default: true
  ```
 
 ## Contributing
