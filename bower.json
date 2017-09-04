@@ -1,6 +1,10 @@
 {
-  "name": "SliderPlex",
+  "name": "slideplex",
   "homepage": "https://github.com/e200/SliderPlex",
+  "repository": {
+  "type": "git",
+      "url": "git://github.com/e200/SliderPlex.git"
+    },
   "authors": [
     "e200 <eleandro@inbox.ru>"
   ],
