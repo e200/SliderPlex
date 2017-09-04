@@ -9,7 +9,7 @@
         $slides_length,
 
         $options = {
-        time: 8,
+        interval: 8,
         autoPlay: true,
         transition: 'fade',
         transitionTime: .5,
@@ -18,7 +18,7 @@
         nonFocusArrows: false,
         pauseOnMouseOver: false,
         pauseOnMouseDown: true,
-        fullHeight: true
+        fillHeight: false
     };
 
     $.fn.SliderPlex = function (userOptions) {
@@ -50,8 +50,8 @@
             if($options.arrows)
                 initArrows();
 
-            if($options.fullHeight)
-                fullHeight();
+            if($options.fillHeight)
+                fillHeight();
 
             if($options.autoPlay)
                 play();
@@ -104,7 +104,7 @@
         }
 
         /** Makes each slide fill the slider height */
-        function fullHeight() {
+        function fillHeight() {
             $plex_slides_container.addClass('full-height');
         }
 
@@ -119,7 +119,7 @@
                 $cycle = setInterval(slideLeft, getInterval());
         }
 
-        /** Gets the slides transition time */
+        /** Gets the slides transition interval */
         function getTransitionTime () {
             return $options.transitionTime * 1000;
         }
@@ -129,9 +129,9 @@
             return $options.direction === 'right';
         }
 
-        /** Gets the interval time to changes between slides */
+        /** Gets the interval interval to changes between slides */
         function getInterval() {
-            return $options.time * 1000;
+            return $options.interval * 1000;
         }
 
         /**
