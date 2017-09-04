@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="../src/css/SliderPlex.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../src/SliderPlex.js"></script>
+    <title>Test</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        background: #ddd;
+    }
+    html, body {
+        height: 100%;
+    }
+    .slider {
+        height: 500px;
+        box-shadow: 0 0 2px #000;
+    }
+    header {
+        position: relative;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100% - 500px);
+        font-family: "Helvetica", sans-serif;
+        color: #adadad;
+    }
+</style>
+<body>
+    <div class="slider slider-plex">
+        <ul>
+            <li>
+                <img src="0.jpg">
+            </li>
+            <li>
+                <img src="1.jpg">
+            </li>
+            <li>
+                <img src="2.jpg">
+            </li>
+            <li>
+                <img src="3.jpg">
+            </li>
+        </ul>
+    </div>
+    <header>
+        <h1>SliderPlex demo</h1>
+    </header>
+    <script>
+        $('.slider').SliderPlex({
+            interval: 3,
+            transition: 'fade'
+        });
+    </script>
+</body>
+</html>
