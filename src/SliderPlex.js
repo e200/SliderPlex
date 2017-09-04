@@ -18,7 +18,7 @@
         nonFocusArrows: false,
         pauseOnMouseOver: false,
         pauseOnMouseDown: true,
-        fillHeight: false
+        fillSpace: false
     };
 
     $.fn.SliderPlex = function (userOptions) {
@@ -50,8 +50,8 @@
             if($options.arrows)
                 initArrows();
 
-            if($options.fillHeight)
-                fillHeight();
+            if($options.fillSpace)
+                fillSpace();
 
             if($options.autoPlay)
                 play();
@@ -107,8 +107,8 @@
             $('.arrow').addClass('non-focus');
         }
 
-        /** Makes each slide fill the slider height */
-        function fillHeight() {
+        /** Makes each slide fill the slider space */
+        function fillSpace() {
             $plex_slides_container.addClass('full-height');
         }
 
