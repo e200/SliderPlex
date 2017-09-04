@@ -11,6 +11,7 @@
     height: 100%
     overflow: hidden
     background-color: transparent
+    overflow: hidden
 
     .plex-slides
         position: absolute
@@ -48,3 +49,25 @@
         opacity: 1
     to
         opacity: 0
+
+.zoomOut
+    @include animation(zoomOut .5s ease-out)
+
+@keyframes zoomOut
+    from
+        opacity: 1
+        @include transform(scale(1))
+    to
+        opacity: 0
+        @include transform(scale(1.02))
+
+.slideOut
+    @include animation(slideOut .5s ease-out)
+
+@keyframes slideOut
+    from
+        opacity: 1
+        @include transform(translateX(0))
+    to
+        opacity: 0
+        @include transform(translateX(-100%))
