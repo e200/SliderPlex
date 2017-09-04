@@ -46,9 +46,6 @@
             <li>
                 <img src="2.jpg">
             </li>
-            <li>
-                <img src="3.jpg">
-            </li>
         </ul>
     </div>
     <header>
@@ -57,7 +54,9 @@
     <script>
         $('.slider').SliderPlex({
             interval: 3,
-            transition: 'fade'
+            transition: 'fade',
+            nonFocusArrows: true,
+            fillSpace: true
         });
     </script>
 </body>
