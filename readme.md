@@ -1,6 +1,6 @@
 # SliderPlex
 
-A simple and responsive jQuery content slider plugin.
+A simple and responsive jQuery content slider plugin. See a [demo](https://e200.github.io/SliderPlex/demo/).
 
 ## Table of contents
 
@@ -20,7 +20,7 @@ Install it using one of the follow options:
     git clone git://github.com/e200/SliderPlex.git
 
 2. Using [Bower](https://bower.io/docs):
-    
+
     bower install sliderplex
 
 in a **terminal/prompt** in your project folder, then add *jQuery* and **SliderPlex** files (CSS & JavaScript) to your page:
@@ -28,7 +28,7 @@ in a **terminal/prompt** in your project folder, then add *jQuery* and **SliderP
 ```html
 <head>
     <link rel="stylesheet" href="src/css/SliderPlex.min.css">
-    
+
     <!-- jQuery must be before SliderPlex -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="src/SliderPlex.min.js"></script>
@@ -67,16 +67,16 @@ Full usage code:
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        
+
         <title>SliderPlex example</title>
-        
+
         <link rel="stylesheet" href="src/css/SliderPlex.min.css">
-            
+
         !-- jQuery must be before SliderPlex -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="src/SliderPlex.min.js"></script>
     </head>
-    
+
     <body>
         <div id="slider">
             <ul>
@@ -87,7 +87,7 @@ Full usage code:
                 <li><img src="images/slides5.jpg"></li>
             </ul>
         </div>
-        
+
         <script>
             $('#slider').SliderPlex();
         </script>
@@ -113,7 +113,7 @@ $('.slider').SliderPlex({
 ```
 autoPlay         | default: true
 slideInterval    | default: 8 (sec)                       
-animation        | default: 'fade'
+animation        | default: 'fade'.[fade, zoom, slide]
 animationTime    | default: .5 (sec)
 direction        | default: 'right'
 arrows           | default: true
@@ -129,7 +129,7 @@ To contribute, please, read [contributing](https://github.com/e200/SliderPlex).
 ## Credits
 
  - [Eleandro Duzentos](https://e200.github.com/) and contributors.
- 
+
 ## License
- 
+
 The SliderPlex is licensed under the MIT license. See [License](https://github.com/) file for more information.
