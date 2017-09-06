@@ -7,44 +7,51 @@
 
     <link rel="stylesheet" href="../src/css/SliderPlex.min.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Poiret+One">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="../src/SliderPlex.js"></script>
-    <title>Test</title>
+    <title>SliderPlex demo</title>
 </head>
 <style>
-    body {
-        margin: 0;
-        background: #ddd;
-    }
-    html, body {
-        height: 100%;
-    }
-    .slider {
-        height: 500px;
-        box-shadow: 0 0 2px #000;
-    }
-    header {
-        position: relative;
-        top: 0;
+    html, body { height: 100%; }
+    body { margin: 0; background: #ddd; font-family: 'Open Sans'; }
+    .slider { height: 80%; box-shadow: 0 0 2px #000; }
+    .barner {
+        font-family: 'Poiret One';
         display: flex;
         justify-content: center;
         align-items: center;
-        height: calc(100% - 500px);
-        font-family: "Helvetica", sans-serif;
-        color: #adadad;
+        text-align: center;
     }
+    .barner h1 { width: 70%; color: #efefef; }
+    .barner-1 {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('0.jpg');
+    }
+    .barner-1 h1 { color: #7e7e7e; }
+    .barner-2 { background-color: #00714d; }
+    .barner-3 { background-color: #003d71; }
+    header { display: flex; justify-content: center; align-items: center; color: #adadad; height: 20%; }
 </style>
 <body>
     <div class="slider slider-plex">
         <ul>
             <li>
-                <img src="0.jpg">
+                <div class="barner barner-1">
+                    <h1>Where do new ideas come from? The answer is simple: differences. Creativity comes from unlikely juxtapositions.</h1>
+                </div>
             </li>
             <li>
-                <img src="1.jpg">
+                <div class="barner barner-2">
+                    <h1>“Do not seek praise. Seek criticism.”</h1>
+                </div>
             </li>
             <li>
-                <img src="2.jpg">
+                <div class="barner barner-3">
+                    <h1>Good design is a language, not a style</h1>
+                </div>
             </li>
         </ul>
     </div>
@@ -53,10 +60,14 @@
     </header>
     <script>
         $('.slider').SliderPlex({
-            interval: 3,
-            transition: 'fade',
+            slideInterval: 3,
+            animation: 'fade',
+            animationTime: .5,
+            direction: 'left',
             nonFocusArrows: true,
-            fillSpace: true
+            fillSpace: true,
+            autoPlay: true,
+            pauseOnMouseOver: true
         });
     </script>
 </body>
