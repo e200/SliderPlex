@@ -4,22 +4,26 @@
         $plex_slides,
         $cycle,
         $active = 'active',
-        $next = 'next',
+        $new = 'new',
+        $old = 'old',
+        $slider_plex = '.slider-plex',
+        $arrow = '.arrow',
         $index = 0,
         $slides_length,
+        $isPaused = false,
 
         $options = {
-        interval: 8,
-        autoPlay: true,
-        transition: 'fade',
-        transitionTime: .5,
-        direction: 'right',
-        arrows: true,
-        nonFocusArrows: false,
-        pauseOnMouseOver: false,
-        pauseOnMouseDown: true,
-        fillSpace: false
-    };
+            slideInterval: 8,
+            autoPlay: true,
+            animation: 'fade',
+            animationTime: .5,
+            direction: 'right',
+            arrows: true,
+            nonFocusArrows: false,
+            pauseOnMouseOver: false,
+            pauseOnMouseDown: true,
+            fillSpace: false
+        };
 
     $.fn.SliderPlex = function (userOptions) {
 
@@ -40,18 +44,25 @@
             $plex.addClass('slider-plex');
 
             /** Adding styles to the slides container and also to each slide */
-            $plex_slides_container.addClass('plex-slides');
+            $plex_slides_container.addClass('slides');
 
             /** Setting the number of slides */
             $slides_length = $plex_slides.length;
 
             activeFirstSlide();
+            setAnimation();
 
             if($options.arrows)
                 initArrows();
 
             if($options.fillSpace)
                 fillSpace();
+
+            if($options.pauseOnMouseOver)
+                pauseOnMouseOver();
+
+            if($options.pauseOnMouseDown)
+                pauseOnMouseDown();
 
             if($options.autoPlay)
                 play();
@@ -74,22 +85,42 @@
              * in an arrow the play slide cycle is restarted
              */
             if($options.autoPlay)
-                $('.arrow').on('click', function (e) {
+                $($arrow).on('click', function (e) {
                     e.preventDefault();
 
                     play();
                 });
 
-            $('.arrow-right').on('click', function (e) {
+            $($arrow + '-right').on('click', function (e) {
                 e.preventDefault();
 
                 slideRight();
             });
-            $('.arrow-left').on('click', function (e) {
+            $($arrow + '-left').on('click', function (e) {
                 e.preventDefault();
 
                 slideLeft();
             });
+        }
+
+        function pauseOnMouseOver() {
+            $($slider_plex)
+                .on('mouseover', function () {
+                    $isPaused = true
+                })
+                .on('mouseout', function () {
+                    $isPaused = false
+                });
+        }
+
+        function pauseOnMouseDown() {
+            $($slider_plex)
+                .on('mousedown', function () {
+                    $isPaused = true
+                })
+                .on('mouseup', function () {
+                    $isPaused = false
+                });
         }
 
         /** Adds slider arrows buttons to the slider */
@@ -104,7 +135,7 @@
          * Useful to avoid distraction
          */
         function setArrowsAsNonFocus() {
-            $('.arrow').addClass('non-focus');
+            $($arrow).addClass('non-focus');
         }
 
         /** Makes each slide fill the slider space */
@@ -112,14 +143,32 @@
             $plex_slides_container.addClass('full-height');
         }
 
-        /** Starts the slide cyle */
+        /**
+         * Sets the slider animation
+         */
+        function setAnimation() {
+            $('head').append(
+                '<style>'
+                + '.' + animationName() + ' .' + $old + ','
+                + '.' + animationName() + ' .' + $new
+                + ' {animation-duration:' + animationTime() + 'ms' + '}'
+                +
+                '</style>'
+            );
+
+            // Adds the animation class
+            $plex_slides_container.addClass(animationName());
+        }
+
+        /** Starts the slide cycle */
         function play() {
+            /* Stops a cycle before start a new one */
             if($cycle)
                 clearInterval($cycle);
 
-            // Just for code reuse
+            // SetInterval - Just for code reuse
             var setInt = function (callback) {
-                $cycle = setInterval(callback, getInterval());
+                $cycle = setInterval(callback, slideInterval());
             };
 
             if(directionToRight())
@@ -128,9 +177,9 @@
                 setInt(slideLeft);
         }
 
-        /** Gets the slides transition interval */
-        function getTransitionTime () {
-            return $options.transitionTime * 1000;
+        /** Gets the slides animation slideInterval */
+        function animationTime () {
+            return $options.animationTime * 1000;
         }
 
         /** Retuns true if the slider direction is to right, false otherwise (left) */
@@ -138,9 +187,9 @@
             return $options.direction === 'right';
         }
 
-        /** Gets the interval interval to changes between slides */
-        function getInterval() {
-            return $options.interval * 1000;
+        /** Gets the slideInterval slideInterval to changes between slides */
+        function slideInterval() {
+            return $options.slideInterval * 1000;
         }
 
         /**
@@ -149,66 +198,100 @@
          * @param next
          */
         function slideTo(next) {
-            var $active = getCurrent();
+            var $current = getCurrent();
 
-            setNext(next);
-            slideOut($active);
+            setOld($current);
+            setNew(next);
 
             setTimeout(function () {
-                removeTransition($active);
-                bringInBack($active);
-                bringInFront(next);
-            }, getTransitionTime());
+                inactive($current);
+                active(next);
+
+                unsetOld($current);
+                unsetNew(next);
+            }, animationTime());
         }
 
-        /** Sets the next slide to be displayed */
-        function setNext(next) {
-            next.addClass($next);
+        /**
+         * Sets a slide as .old (used by css for animations)
+         *
+         * @param slide
+         */
+        function setOld(slide) {
+            slide.addClass($old);
         }
-        
-        /** Removes the transition animation class from the given slide */
-        function removeTransition(slide) {
-            slide.removeClass(transitionName());
+
+        /**
+         * Unsets a slide as old (used by css for animations)
+         *
+         * @param slide
+         */
+        function unsetOld(slide) {
+            slide.removeClass($old);
+        }
+
+        /**
+         * Sets the new slide (used by css for animations)
+         *
+         * @param slide
+         */
+        function setNew(slide) {
+            slide.addClass($new);
+        }
+
+        /**
+         * Unsets the new slide (used by css for animations)
+         *
+         * @param slide
+         */
+        function unsetNew(slide) {
+            slide.removeClass($new);
         }
 
         /** Brings the active slide to back (Invisible) */
-        function bringInBack(slide) {
-            slide.removeClass($active);
+        function inactive(slide) {
+            slide.removeClass($active)
         }
 
         /** Brings the next slide to the front (Visible) */
-        function bringInFront(slide) {
-            slide
-                .removeClass($next)
-                .addClass($active);
+        function active(slide) {
+            slide.addClass($active);
+        }
+
+        /**
+         * Checks is a cycle is paused
+         *
+         * @returns {boolean}
+         */
+        function isPaused() {
+            return $isPaused;
         }
 
         /** Slides to the left */
         function slideLeft() {
             var $leftSlide = getLeft();
 
-            slideTo($leftSlide);
+            if(!isPaused()) {
+                slideTo($leftSlide);
 
-            decrement();
+                decrement();
+            }
         }
 
         /** Slides to the right */
         function slideRight() {
             var $rightSlide = getRight();
 
-            slideTo($rightSlide);
+            if(!isPaused()) {
+                slideTo($rightSlide);
 
-            increment();
+                increment();
+            }
         }
 
-        /** Slide out the active slide */
-        function slideOut(slide) {
-            slide.addClass(transitionName());
-        }
-
-        /** Gets the transition animation name */
-        function transitionName() {
-            return $options.transition + 'Out';
+        /** Gets the animation animation name */
+        function animationName() {
+            return $options.animation;
         }
 
         /** Get a slide by index in the slides collection */
