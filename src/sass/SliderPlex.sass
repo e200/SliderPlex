@@ -1,8 +1,7 @@
 // compileExpanded: ../css/SliderPlex.css, compileCompressed: ../css/SliderPlex.min.css
 
+@import '../../node_modules/sass-autoprefixer/scss/prefixes'
 @import 'vars'
-@import 'mixins/propertyPrefix'
-@import 'mixins/commons'
 @import 'arrow'
 
 .slider-plex
@@ -10,71 +9,93 @@
     width: 100%
     height: 100%
     overflow: hidden
-    background-color: transparent
-    overflow: hidden
-
-    .plex-slides
-        position: absolute
-        top: 0
-        bottom: 0
-        margin: 0
-        padding: 0
-        width: 100%
 
     .active
-        z-index: 4
-
-    .next, .prev
-        z-index: 3
+        display: block
 
     .full-height > li > *
         height: 100%
 
-.plex-slides
+.slides
+    position: absolute
+    top: 0
+    bottom: 0
+    margin: 0
+    padding: 0
+    width: 100%
+
     > li
         position: absolute
-        top: 0
-        bottom: 0
         width: 100%
+        height: 100%
         list-style: none
+        display: none
 
         > img
             width: 100%
 
-.fadeOut
-    @include animation(fadeOut .5s ease-out)
+.slider-plex .new, .slider-plex .old
+     display: block
 
-@keyframes fadeOut
+.fade
+    .new
+        z-index: 1
+        @include vp-animation(fadeIn ease-out)
+
+.zoom
+    .new
+        @include vp-animation(fadeIn ease-in)
+
+    .old
+        z-index: 1
+        @include vp-animation(zoomOut ease-out)
+
+.slide
+    .new
+        @include vp-animation(slideIn ease-in-out)
+    .old
+        @include vp-animation(slideOut ease-in-out)
+
+.slideRight
+    .new
+        @include vp-animation(slideRightIn ease-in-out)
+    .old
+        @include vp-animation(slideRightOut ease-in-out)
+
+@include vp-keyframes(fadeIn)
+    from
+        opacity: 0
+    to
+        opacity: 1
+
+@include vp-keyframes(zoomOut)
     from
         opacity: 1
+        @include vp-transform(scale(1))
     to
         opacity: 0
+        @include vp-transform(scale(1.02))
 
-.zoomOut
-    @include animation(zoomOut .5s ease-out)
-
-@keyframes zoomOut
+@include vp-keyframes(slideIn)
     from
-        opacity: 1
-        @include transform(scale(1))
+        @include vp-transform(translateX(100%))
     to
-        opacity: 0
-        @include transform(scale(1.02))
+        @include vp-transform(translateX(0))
 
-.slideIn
-    @include animation(slideIn .5s ease-out)
-
-.slideOut
-    @include animation(slideOut .5s ease-out)
-
-@keyframes slideIn
+@include vp-keyframes(slideOut)
     from
-        @include transform(translateX(-100%))
+        @include vp-transform(translateX(0))
     to
-        @include transform(translateX(0))
+        @include vp-transform(translateX(-100%))
 
-@keyframes slideOut
+@include vp-keyframes(slideRightIn)
     from
-        @include transform(translateX(0))
+        @include vp-transform(translateX(-100%))
     to
-        @include transform(translateX(-100%))
+        @include vp-transform(translateX(0))
+
+@include vp-keyframes(slideRightOut)
+    from
+        @include vp-transform(translateX(0))
+    to
+        @include vp-transform(translateX(100%))
