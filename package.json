@@ -1,0 +1,35 @@
+{
+  "name": "SliderPlex",
+  "version": "0.2",
+  "author": {
+    "email": "eleandro@inbox.ru",
+    "name": "Eleandro Duzentos"
+  },
+  "description": "A simple and responsive jQuery content slider plugin",
+  "devDependencies": {
+    "sass-autoprefixer": "^1.0.1"
+  },
+  "homepage": "https://github.com/e200/SliderPlex",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e200/SliderPlex.git"
+  },
+  "license": "MIT",
+  "main": "src/SliderPlex.min.js src/css/SliderPlex.min.css",
+  "keywords": [
+    "jQuery",
+    "Responsive",
+    "Simple",
+    "Content",
+    "Slider",
+    "Plugin",
+    "Fade",
+    "Slide"
+  ],
+  "maintainers": [
+    {
+      "email": "eleandro@inbox.ru",
+      "name": "Eleandro Duzentos"
+    }
+  ]
+}
