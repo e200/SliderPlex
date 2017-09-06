@@ -23,6 +23,10 @@ Install it using one of the follow options:
 
     bower install sliderplex
 
+3. Using [npm](https://www.npmjs.com/):
+
+    bower install sliderplex
+
 in a **terminal/prompt** in your project folder, then add *jQuery* and **SliderPlex** files (CSS & JavaScript) to your page:
 
 ```html
