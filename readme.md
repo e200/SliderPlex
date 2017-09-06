@@ -137,7 +137,7 @@ Please, open a new [issue](https://github.com/e200/SliderPlex/issues/new), or re
 
 ## Credits
 
- - [Eleandro Duzentos](https://e200.github.com/) and contributors.
+ - [Eleandro Duzentos](https://github.com/e200) and contributors.
 
 ## License
 
