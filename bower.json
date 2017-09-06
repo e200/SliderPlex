@@ -22,7 +22,7 @@
     "Slide"
   ],
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
    "jQuery": "~3.2.0"
  },
   "ignore": [
