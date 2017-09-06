@@ -113,7 +113,7 @@ $('.slider').SliderPlex({
 ```
 autoPlay         | default: true
 slideInterval    | default: 8 (sec)                       
-animation        | default: 'fade'.[fade, zoom, slide]
+animation        | default: 'fade' [fade, zoom, slide]
 animationTime    | default: .5 (sec)
 direction        | default: 'right'
 arrows           | default: true
