@@ -14,6 +14,10 @@
     "type": "git",
     "url": "git+https://github.com/e200/SliderPlex.git"
   },
+  "bugs": {
+    "url": "https://github.com/e200/SliderPlex/issues",
+    "email": "eleandro@inbox.ru"
+  },
   "license": "MIT",
   "main": "src/SliderPlex.min.js src/css/SliderPlex.min.css",
   "keywords": [
