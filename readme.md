@@ -129,7 +129,8 @@ To contribute, please, read [contributing](https://github.com/e200/SliderPlex).
 
 # Bug
 
-Please, report to: [eleandro@inbox.ru](mailto://eleandro@inbox.ru)
+Please, open a new [issue](https://github.com/e200/SliderPlex/issues/new), or report to: [eleandro@inbox.ru](mailto://eleandro@inbox.ru). :)
+
 ## Credits
 
  - [Eleandro Duzentos](https://e200.github.com/) and contributors.
