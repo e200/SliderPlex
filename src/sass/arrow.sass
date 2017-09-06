@@ -18,11 +18,10 @@
         font-variant: normal
         text-transform: none
         line-height: 0
-
+        color: $arrow-color
         position: absolute
         top: 50%
         padding: 0 35px
-        color: $arrow-color
         /* We use z-index to show and hide our slides */
         /* We must set the `.arrow` z-index with a higher value */
         /* so the .arrow are always displayed in front of our slides */
@@ -32,7 +31,7 @@
         text-decoration: none
         outline: 0
 
-        @include transition
+        @include vp-transition(.3s)
 
         @media (max-width: 767px)
             display: none
