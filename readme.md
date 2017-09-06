@@ -127,7 +127,7 @@ fillSpace        | default: true
 
 To contribute, please, read [contributing](https://github.com/e200/SliderPlex).
 
-# Bug
+## Bug
 
 Please, open a new [issue](https://github.com/e200/SliderPlex/issues/new), or report to: [eleandro@inbox.ru](mailto://eleandro@inbox.ru). :)
 
