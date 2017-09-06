@@ -104,7 +104,7 @@ You can pass an object containing options to the SliderPlex initialization metho
 ```js
 $('.slider').SliderPlex({
     autoPlay: false,
-    transition: 'fade'
+    animation: 'fade'
 });
 ```
 
@@ -112,9 +112,9 @@ $('.slider').SliderPlex({
 
 ```
 autoPlay         | default: true
-interval         | default: 8 (sec)                       
-transition       | default: 'fade'
-transitionTime   | default: .5 (sec)
+slideInterval    | default: 8 (sec)                       
+animation        | default: 'fade'
+animationTime    | default: .5 (sec)
 direction        | default: 'right'
 arrows           | default: true
 nonFocusArrows   | default: false
