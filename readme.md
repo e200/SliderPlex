@@ -129,11 +129,11 @@ fillSpace        | default: true
 
 ## Contributing
 
-To contribute, please, read [contributing](https://github.com/e200/SliderPlex).
+To contribute, please, read [contributing](https://github.com/e200/SliderPlex/contributing.md).
 
-## Bug
+## Bugs
 
-Please, open a new [issue](https://github.com/e200/SliderPlex/issues/new), or report to: [eleandro@inbox.ru](mailto://eleandro@inbox.ru). :)
+Please, open an [issue](https://github.com/e200/SliderPlex/issues/new), or report to: [eleandro@inbox.ru](mailto://eleandro@inbox.ru).
 
 ## Credits
 
@@ -141,4 +141,4 @@ Please, open a new [issue](https://github.com/e200/SliderPlex/issues/new), or re
 
 ## License
 
-The SliderPlex is licensed under the MIT license. See [License](https://github.com/) file for more information.
+The SliderPlex is licensed under the MIT license. See [License](https://github.com/e200/SliderPlex/license) file for more information.
