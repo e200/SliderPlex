@@ -6,7 +6,7 @@
     "name": "Eleandro Duzentos"
   },
   "description": "A simple and responsive jQuery content slider plugin",
-  "devDependencies": {
+  "optionalDependencies": {
     "sass-autoprefixer": "^1.0.1"
   },
   "homepage": "https://github.com/e200/SliderPlex",
